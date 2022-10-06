@@ -29,6 +29,14 @@ driver = webdriver.Chrome('/home/enigma/Downloads/chromedriver', chrome_options=
 action = ActionChains(driver)
 time.sleep(1)
 
+name: 'BrowserStack Env Setup'
+uses: 'browserstack/github-actions/setup-env@master'
+with:
+username:  ${{ secrets.BROWSERSTACK_USERNAME }}
+access-key: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
+build-name: 'BUILD_INFO'
+project-name: 'REPO_NAME'
+
 
 driver.get('http://www.amazon.in/ap/signin?openid.pape.max_auth_age=0&openid.return_to=https%3A%2F%2Fwww.amazon.in%2F%3Fref_%3Dnav_signin&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.assoc_handle=inflex&openid.mode=checkid_setup&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&')
 time.sleep(3)
